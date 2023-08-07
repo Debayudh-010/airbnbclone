@@ -41,7 +41,10 @@ function addWildcards(str) {
   return '.*' + str.split('').join('.*') + '.*';
 }
 
-mongoose.connect(process.env.MONGO_URL);
+mongoose.connect(process.env.MONGO_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 
 app.use(express.json());
