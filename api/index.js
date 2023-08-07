@@ -159,7 +159,9 @@ app.post("/login", async (req, res) => {
           {},
           (err, token) => {
             if (err) throw err;
-            res.cookie("token", token).json(userDoc);
+            res.cookie("token", token,{
+              sameSite: 'none', // SameSite attribute
+            }).json(userDoc);
           }
         );
       } else res.status(422).json("pass not ok");
