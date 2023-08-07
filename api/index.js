@@ -271,7 +271,6 @@ app.get("/user-places", (req, res) => {
 app.post("/placeSearch", (req,res) => {
   const searchString= req.body.searchString;
   const searchRegex= addWildcards(searchString);
-  console.log(searchRegex);
   Place.find({ address: { $regex: searchRegex, $options: 'i' } })
     .then((placesData) => {
       res.json(placesData);
