@@ -10,6 +10,7 @@ const multer = require("multer");
 const fs = require("fs");
 const nodemailer = require("nodemailer");
 const uuid = require('uuid');
+const path= require("path")
 const User = require("./models/user");
 const Place = require("./models/place");
 const Booking = require("./models/bookedRoom");
@@ -51,12 +52,28 @@ app.use(express.json());
 app.use(cookieParser());
 app.use("/uploads", express.static(__dirname + "/uploads"));
 
+var origin= 'http://localhost:5173'
+
 app.use(
   cors({
     credentials: true,
-    origin: "http://localhost:5173",
+    origin: origin,
   })
 );
+
+const __dirname1 = path.resolve();
+console.log(__dirname1);
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname1, "../client/build")));
+
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname1, "client", "build", "index.html"))
+  );
+} else {
+  app.get("/", (req, res) => {
+    res.send("API is running..");
+  });
+}
 
 app.get("/test", (req, res) => {
   res.json("test ok");
