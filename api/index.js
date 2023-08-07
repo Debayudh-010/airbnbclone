@@ -51,12 +51,10 @@ app.use(express.json());
 app.use(cookieParser());
 app.use("/uploads", express.static(__dirname + "/uploads"));
 
-app.set('trust proxy', 1);
 app.use(
   cors({
-    origin: '*',
     credentials: true,
-    optionSuccessStatus: 200
+    origin: "http://localhost:5173",
   })
 );
 
