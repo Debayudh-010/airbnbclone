@@ -161,6 +161,7 @@ app.post("/login", async (req, res) => {
             if (err) throw err;
             res.cookie("token", token,{
               sameSite: 'none', // SameSite attribute
+              secure: true,     // Secure flag, requires HTTPS
             }).json(userDoc);
           }
         );
