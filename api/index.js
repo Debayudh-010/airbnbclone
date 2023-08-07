@@ -52,7 +52,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use("/uploads", express.static(__dirname + "/uploads"));
 
-var origin= 'http://localhost:5173'
+var origin= 'https://airbnb-clone-n2s7.onrender.com'
 
 app.use(
   cors({
@@ -61,19 +61,19 @@ app.use(
   })
 );
 
-const __dirname1 = path.resolve();
-console.log(__dirname1);
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname1, "../client/dist")));
+// const __dirname1 = path.resolve();
+// console.log(__dirname1);
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static(path.join(__dirname1, "../client/dist")));
 
-  app.get("*", (req, res) =>
-    res.sendFile(path.resolve(__dirname1, "../client", "dist", "index.html"))
-  );
-} else {
-  app.get("/", (req, res) => {
-    res.send("API is running..");
-  });
-}
+//   app.get("*", (req, res) =>
+//     res.sendFile(path.resolve(__dirname1, "../client", "dist", "index.html"))
+//   );
+// } else {
+//   app.get("/", (req, res) => {
+//     res.send("API is running..");
+//   });
+// }
 
 app.get("/test", (req, res) => {
   res.json("test ok");
