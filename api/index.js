@@ -52,7 +52,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use("/uploads", express.static(__dirname + "/uploads"));
 
-var origin= 'https://airbnb-clone-backend-2.onrender.com/'
+var origin= 'https://airbnb-clone-d1iv.onrender.com'
 
 app.use(
   cors({
