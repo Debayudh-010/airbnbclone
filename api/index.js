@@ -107,7 +107,7 @@ app.post("/register", async (req, res) => {
         from: process.env.EMAIL_ADDRESS,
         to: email,
         subject: 'Email Verification',
-        text: `Please click on the following link to verify your email: ${origin}/api/verify/${verificationCode}`,
+        text: `Please click on the following link to verify your email: https://airbnb-clone-backend-2.onrender.com/api/verify/${verificationCode}`,
       },
       (error, info)=>{
         if(error){
