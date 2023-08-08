@@ -107,7 +107,7 @@ app.post("/register", async (req, res) => {
         from: process.env.EMAIL_ADDRESS,
         to: email,
         subject: 'Email Verification',
-        text: `Please click on the following link to verify your email: http://localhost:${port}/api/verify/${verificationCode}`,
+        text: `Please click on the following link to verify your email: ${origin}/api/verify/${verificationCode}`,
       },
       (error, info)=>{
         if(error){
