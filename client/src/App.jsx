@@ -10,7 +10,7 @@ import AccountPage from "./pages/accountpage/AccountPage";
 import ProfilePage from "./pages/profilepage/ProfilePage";
 import RoomsPage from "./pages/roomspage/RoomsPage";
 
-axios.defaults.baseURL= "https://airbnb-clone-backend-2.onrender.com/"
+axios.defaults.baseURL= "https://airbnb-clone-backend-2.onrender.com"
 axios.defaults.withCredentials= true;
 
 function App() {
